@@ -1,9 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">        
-    </head>
-    <body>
-        <h1>Hola Mundo</h1>
-    </body>
-</html>
+{% extends 'layout.html' %}
+
+{% block register %}
+<div class="row">
+    <form class="col s12" method="POST" action="/user">
+        <fieldset>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="txtFullName" name="txtFullName" placeholder="Nombre Completo">
+                    <label for="txtFullName">Nombre Completo</label> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="txtUserName" name="txtUserName" placeholder="Nombre de Usuario">
+                    <label for="txtUserName">Nombre de Usuario</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+                    <label for="txtPassword">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-btn">
+                    <button class="btn waves-effect waves-light" name="action">Crear Cuenta
+                        <i class="material-icons right">add</i>
+                    </button>                                                                                
+                </div>    
+            </div>                                                     
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
