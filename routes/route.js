@@ -1,4 +1,4 @@
-var controller = require('../controllers/controller');
+var controller = require('../controllers/users');
 
 var routes = function(app) {
     app.get('/', function(req, res){
@@ -13,9 +13,9 @@ var routes = function(app) {
         res.render('register');
     });
     
-    app.get('/account/home', controller.getUsers, function(req, res) {
+    app.get('/account/home', controller.getUser, function(req, res) {
        res.render('home',{
-           users: req.users
+           user: req.user
        });
     });
     

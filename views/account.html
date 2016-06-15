@@ -11,7 +11,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>		
     </head>
     <body>
-        <header id="myHeader"></header>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Logo</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="#">Sass</a></li>
+                        <li><a href="#">Components</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                    </ul>
+                </div>
+            </nav>            
+        </header>
         <div class="container">
 			{% block home %}
 			{% endblock %}                  
