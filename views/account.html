@@ -5,23 +5,19 @@
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
-        <link type="text/css" rel="stylesheet" href="css/myStyle.css">
+        <link type="text/css" rel="stylesheet" href="/css/myStyle.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>		
     </head>
     <body>
         <header id="myHeader"></header>
         <div class="container">
-            <div class="container">
-                <div class="container">
-					<a href="/users/login">login</a>
-                    <a href="/users/register">register</a>             
-                </div>
-            </div>
+			{% block home %}
+			{% endblock %}                  
         </div>
         <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="js/jquery-3.0.0.js"></script>
-        <script type="text/javascript" src="js/materialize.js"></script>        
+        <script type="text/javascript" src="/js/jquery-3.0.0.js"></script>
+        <script type="text/javascript" src="/js/materialize.js"></script>        
     </body>
 </html>

@@ -1,5 +1,5 @@
 var models = require('./models');
-Schema = models.Schema;
+var Schema = models.Schema;
 
 var schemaUser = new Schema({
     fullName: String,
@@ -8,4 +8,4 @@ var schemaUser = new Schema({
 });
 
 var User = models.model('User', schemaUser, 'users');
-module.exports = User();
+module.exports = User;

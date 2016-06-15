@@ -1,6 +1,6 @@
 var express = require('express');
-app = express();
-server = require('http').createServer(app);
+var app = express();
+var server = require('http').createServer(app);
 
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');

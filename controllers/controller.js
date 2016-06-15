@@ -2,7 +2,7 @@ var _ = require('lodash');
 var User = require('../models/users');
 
 exports.getUsers = function(req, res, next) {
-    user.find(function(err, users) {
+    User.find({userName: req.query.userName}, function(err, users) {
         if(!err){
             req.users = users;
             next();
