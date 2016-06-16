@@ -52,6 +52,9 @@ routes(app);
 var local = require('./local');
 local(app);
 
+var twitter = require('./twitter');
+twitter(app);
+
 var port = Number(process.env.PORT || 3000);
 
 server.listen(port, function(){
