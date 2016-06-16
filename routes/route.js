@@ -13,14 +13,14 @@ var routes = function(app) {
         res.render('register');
     });
     
-    app.get('/account/home', controller.getUser, function(req, res) {
-       res.render('home',{
-           user: req.user
-       });
-    });
+    app.get('/account/home', function(req, res) {
+        res.render('home',{
+            user: req.session.passport.user
+        });
+    });    
     
     app.post('/user', controller.addUser, function(req, res) {
-        res.redirect('/account/home/?userName=' + req.body.txtUserName);
+        res.redirect('/users/login');
     });
 }
 

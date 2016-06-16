@@ -1,18 +1,18 @@
 {% extends 'layoutLogin.html' %}
 
-{% block login %}
+{% block form %}
 <div class="row">
-    <form class="col s12">
+    <form class="col s12" action="/login" method="POST">
         <fieldset>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Nombre de Usuario" type="text" id="txtUserName">
+                    <input placeholder="Nombre de Usuario" type="text" id="txtUserName" name="txtUserName">
                     <label for="txtUserName">Nombre de Usuario</label> 
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Password" type="password" id="txtPassword">
+                    <input placeholder="Password" type="password" id="txtPassword" name="txtPassword">
                     <label for="txtPassword">Password</label> 
                 </div>                                
             </div>
