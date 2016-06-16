@@ -5,7 +5,7 @@ var schemaUser = new Schema({
     fullName: String,
     userName: String,
     password: String,
-    twitter: Schema.Types.Mixed
+    profile: Schema.Types.Mixed
 });
 
 var User = models.model('User', schemaUser, 'users');

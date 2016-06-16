@@ -2,7 +2,7 @@ var passport = require('passport');
 var passportTwitter = require('passport-twitter');
 var TwitterStrategy = passportTwitter.Strategy;
 
-var User = require('./models/users');
+var User = require('../models/users');
 
 var twitterConnection = function(app){
 	passport.use(new TwitterStrategy({
@@ -15,25 +15,23 @@ var twitterConnection = function(app){
 			if(err){
 				return done(err);
 			}else if(!user){
-				var userNew = new User({					
+				var newUser = new User({					
 					userName: profile.username,
-					twitter: profile
+					profile: profile
 				});
 				var datos = JSON.stringify(eval("(" + profile._raw + ")"));
-				userNew.fullName = JSON.parse(datos).name;
-				userNew.save(function(err, user){
-					if(err){
-						done(err, null);
-						return;
-					}
+				newUser.fullName = JSON.parse(datos).name;
+				newUser.save(function(err){
+					if(err)
+						throw err;						
+					return done(null, newUser);					
 				});
 			}else{
 				return done(err, user);
 			}
 		});
-	}
-	));
+	}));
 	app.get('/auth/twitter', passport.authenticate('twitter'));
-	app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect: '/account/home', failureRedirect: '/error', failureFlash: 'Usuario o contraseña erróneos'}));)
+	app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect: '/account/home', failureRedirect: '/'}));
 }
 module.exports = twitterConnection;

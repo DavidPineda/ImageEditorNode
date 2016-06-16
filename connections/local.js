@@ -2,7 +2,7 @@ var passport = require('passport');
 var passportLocal = require('passport-local');
 var LocalStrategy = passportLocal.Strategy;
 
-var User = require('./models/users');
+var User = require('../models/users');
 
 var localConnection = function(app){
 	passport.use('user', new LocalStrategy({
@@ -25,6 +25,6 @@ var localConnection = function(app){
 		});
 	}
 	));
-	app.post('/login', passport.authenticate('user', {successRedirect: '/account/home', failureRedirect: '/error', failureFlash: 'Usuario o contraseña erróneos'}));
+	app.post('/login', passport.authenticate('user', {successRedirect: '/account/home', failureRedirect: '/', failureFlash: 'Usuario o contraseña erróneos'}));
 }
 module.exports = localConnection;

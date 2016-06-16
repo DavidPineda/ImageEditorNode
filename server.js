@@ -49,11 +49,14 @@ swig.setFilter('uniqObject', function(input, f) {
 var routes = require('./routes/route');
 routes(app);
 
-var local = require('./local');
+var local = require('./connections/local');
 local(app);
 
-var twitter = require('./twitter');
+var twitter = require('./connections/twitter');
 twitter(app);
+
+var facebook = require('./connections/facebook');
+facebook(app);
 
 var port = Number(process.env.PORT || 3000);
 
