@@ -13,6 +13,9 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 var swig = require('swig');
+//var io = require('socket.io')(server);
+//var redis = require('redis');
+//var client = redis.createClient();
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
