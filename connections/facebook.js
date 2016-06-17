@@ -6,9 +6,9 @@ var User = require('../models/users');
 
 var facebookConnection = function(app){
 	passport.use(new FacebookStrategy({
-		clientID: '',
-		clientSecret: '',
-		callbackURL: ''
+		clientID: '903546249767743',
+		clientSecret: 'fd267adc43739bc1208ac347ff63b94f',
+		callbackURL: 'http://127.0.0.1:3000/auth/facebook/callback'
 	},
 	function(token, tokenSecret, profile, done){
 		User.findOne({'id': profile.id}, function(err, user){
@@ -17,7 +17,7 @@ var facebookConnection = function(app){
 			}else if(!user){
 				var newUser = new User({					
 					userName: profile.name,
-                    fullName = profile.name.givenname + ' ' + profile.name.familyName,
+                    fullName: profile.name.givenname + ' ' + profile.name.familyName,
 					profile: profile
 				});
 				newUser.save(function(err){

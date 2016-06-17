@@ -6,9 +6,9 @@ var User = require('../models/users');
 
 var twitterConnection = function(app){
 	passport.use(new TwitterStrategy({
-		consumerKey: '',
-		consumerSecret: '',
-		callbackURL: ''
+		consumerKey: '9qbJtLes9b4dhxYiak4bHIPoy',
+		consumerSecret: '8swr1s35fzBr4BM80c2Y7iBCGjT3bGlxhGSxn811Ayp0k9YVkZ',
+		callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback'
 	},
 	function(token, tokenSecret, profile, done){
 		User.findOne({'twitter.id': profile.id}, function(err, user){
