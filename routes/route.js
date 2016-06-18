@@ -23,5 +23,4 @@ var routes = function(app) {
         res.redirect('/users/login');
     });
 }
-
 module.exports = routes;

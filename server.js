@@ -61,9 +61,6 @@ twitter(app);
 var facebook = require('./connections/facebook');
 facebook(app);
 
-var google = require('./connections/google');
-google(app);
-
 var port = Number(process.env.PORT || 3000);
 
 server.listen(port, function(){
