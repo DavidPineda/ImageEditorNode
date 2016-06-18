@@ -5,3 +5,7 @@ header#myHeader{
 .center-btn { 
 	text-align: center;
 }
+
+.myForm{
+	margin-top: 3em;
+}

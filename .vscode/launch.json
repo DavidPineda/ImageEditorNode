@@ -3,26 +3,7 @@
 	"configurations": 
 	[
 		{
-			"name": "Launch Linux",
-			"type": "node",
-			"request": "launch",
-			"program": "server.js",
-			"stopOnEntry": false,
-			"args": [],
-			"cwd": ".",
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
-			"externalConsole": false,
-			"sourceMaps": true,
-			"outDir": "?~~~~"
-		},
-		{
-			"name": "Launch Windows",
+			"name": "Launch",
 			"type": "node",
 			"request": "launch",
 			"program": "${workspaceRoot}/server.js",

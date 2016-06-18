@@ -32,6 +32,6 @@ var twitterConnection = function(app){
 		});
 	}));
 	app.get('/auth/twitter', passport.authenticate('twitter'));
-	app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect: '/account/home', failureRedirect: '/'}));
+	app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect: '/home/gallery', failureRedirect: '/'}));
 }
 module.exports = twitterConnection;

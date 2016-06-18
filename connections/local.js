@@ -25,6 +25,6 @@ var localConnection = function(app){
 		});
 	}
 	));
-	app.post('/login', passport.authenticate('user', {successRedirect: '/account/home', failureRedirect: '/', failureFlash: 'Usuario o contraseña erróneos'}));
+	app.post('/login', passport.authenticate('user', {successRedirect: '/home/gallery', failureRedirect: '/', failureFlash: 'Usuario o contraseña erróneos'}));
 }
 module.exports = localConnection;

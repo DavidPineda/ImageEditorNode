@@ -13,8 +13,8 @@ var routes = function(app) {
         res.render('register');
     });
     
-    app.get('/account/home', function(req, res) {
-        res.render('home',{
+    app.get('/home/gallery', function(req, res) {
+        res.render('gallery',{
             user: req.session.passport.user
         });
     });    
