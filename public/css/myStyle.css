@@ -1,11 +1,21 @@
-header#myHeader{
-	height: 5em;
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
-.center-btn { 
+main {
+	flex: 1 0 auto;
+}
+
+.center-btn, .center-text{ 
 	text-align: center;
 }
 
 .myForm{
 	margin-top: 3em;
+}
+
+.carousel{
+	height: 300px !important;
 }

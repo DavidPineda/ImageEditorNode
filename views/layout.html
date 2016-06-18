@@ -15,16 +15,23 @@
             {% block header %}
             {% endblock %}
         </header>
-        <div class="container">
-            <div class="container">
+        <main>
+            {% block title %}
+            {% endblock %}
+            {% block form %}
+            {% endblock %}
+        </main>
+        <footer class="page-footer">
+            <div class="footer-copyright">
                 <div class="container">
-                    {% block form %}
-                    {% endblock %}
-                </div>
+                    Copyright © David Pineda 2016
+                </div>                
             </div>
-        </div>
+        </footer>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="/js/jquery-3.0.0.js"></script>
-        <script type="text/javascript" src="/js/materialize.js"></script>        
+        <script type="text/javascript" src="/js/materialize.js"></script>
+        {% block scripts %}
+        {% endblock %}
     </body>
 </html>

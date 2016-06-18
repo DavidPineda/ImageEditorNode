@@ -13,29 +13,43 @@
 		<div class="nav-wrapper">
 			<a href="#" class="brand-logo">Logo</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="/home/gallery">Galeria<i class="material-icons right">collections</i></a></li>
-				<li><a href="#">Subir Archivos<i class="material-icons right">file_upload</i></a></li>
+				<li class="active"><a href="/home/gallery">Galeria<i class="material-icons right">collections</i></a></li>
+				<li><a href="/home/upload">Subir Archivos<i class="material-icons right">file_upload</i></a></li>
 				<!-- Dropdown Trigger -->
-				<li><a class="dropdown-button" href="#" data-activates="dropdown1">Cuenta<i class="material-icons right">arrow_drop_down</i></a></li>
+				<li><a class="dropdown-button" href="#" data-activates="dropdown1">{{user.userName}}<i class="material-icons right">arrow_drop_down</i></a></li>
 			</ul>
 		</div>
 	</nav>                
 </div>
 {% endblock %}
 
+{% block title %}
+<div class="center-text">
+	<h3><span class="blue-text text-darken-2">Galería de Imágenes</span></h3>	
+</div>
+{% endblock %}
+
 {% block form %}
-<table>
-	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Usuario</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>{{user.fullName}}</td>
-			<td>{{user.userName}}</td>
-		</tr>
-	</tbody>
-</table>
+<div class="container">
+	<p class="center-text">
+		Selecciona la imagen que quieras en el centro, y empieza su
+		edición dando click en el boton Editar.
+	</p>
+	<div class="carousel">
+		{% for image in images %}
+			<a class="carousel-item" href="#"><img width="200" height="200" src="{{image.src}}"></a>
+		{% endfor %}		
+	</div>
+	<div class="center-btn">
+		<a class="waves-effect waves-light btn btn-large"><i class="material-icons right">mode_edit</i>Editar</a>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.carousel').carousel({dist:-50, shift:20, padding:20});
+	});
+</script>
 {% endblock %}
