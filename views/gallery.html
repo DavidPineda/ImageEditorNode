@@ -30,6 +30,7 @@
 {% endblock %}
 
 {% block form %}
+<input type="hidden" id="hfSrcImage">
 <div class="container">
 	<p class="center-text">
 		Selecciona la imagen que quieras en el centro, y empieza su
@@ -37,19 +38,15 @@
 	</p>
 	<div class="carousel">
 		{% for image in images %}
-			<a class="carousel-item" href="#"><img width="200" height="200" src="{{image.relativeSrc}}"></a>
+			<a class="carousel-item" href="#{{image.name}}"><img width="200" height="200" src="{{image.relativeSrc}}"></a>
 		{% endfor %}		
 	</div>
 	<div class="center-btn">
-		<a class="waves-effect waves-light btn btn-large"><i class="material-icons right">mode_edit</i>Editar</a>
+		<a id="btnEdit" class="waves-effect waves-light btn btn-large disabled"><i class="material-icons right">mode_edit</i>Editar</a>
 	</div>
 </div>
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.carousel').carousel({dist:-50, shift:20, padding:20});
-	});
-</script>
+<script type="text/javascript" src="/js/gallery.js"></script>
 {% endblock %}

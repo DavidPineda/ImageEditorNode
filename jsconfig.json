@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs"
+    },
+    "files": [
+        "typings/jquery/jquery.d.ts",
+        "typings/node/node.d.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

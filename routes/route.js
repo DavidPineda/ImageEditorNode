@@ -27,6 +27,12 @@ var routes = function(app) {
         });
     });
 
+    app.get('/home/editor', function(req, res){
+        res.render('editor', {
+            user: req.session.passport.user
+        });
+    });
+
     app.post('/user', userCtrl.addUser, function(req, res) {
         res.redirect('/users/login');
     });
