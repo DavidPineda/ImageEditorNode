@@ -3,7 +3,8 @@ var Schema = models.Schema;
 
 var schemaImage = new Schema({
     name: String,
-    src: String
+    src: String,
+    relativeSrc: String
 });
 
 var Image = models.model('Image', schemaImage, 'images');

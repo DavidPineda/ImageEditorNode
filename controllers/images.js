@@ -18,7 +18,7 @@ exports.getImages = function(req, res, next) {
 exports.addImage = function(req, res, next) {
     var form = new formidable.IncomingForm();
     form.multiples = true;
-    form.uploadDir = path.join(path.dirname(require.main.filename) + '/uploads');
+    form.uploadDir = path.join(path.dirname(require.main.filename) + '/public/uploads');
     form.on('file', function(field, file) {
         fs.rename(file.path, path.join(form.uploadDir, file.name));
     });
@@ -31,7 +31,8 @@ exports.addImage = function(req, res, next) {
             var tempPath = path.join(form.uploadDir, fileName);
             var image = new Image({
                 name: fileName,
-                src: tempPath
+                src: tempPath,
+                relativeSrc: '/uploads/' + fileName
             });
             image.save(function(err, user) {
                 if(!err){
@@ -43,7 +44,7 @@ exports.addImage = function(req, res, next) {
                 }
             });            
         }
-        //res.end('success');
+        res.end('success');
     });
     form.parse(req);    
 }

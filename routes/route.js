@@ -31,8 +31,6 @@ var routes = function(app) {
         res.redirect('/users/login');
     });
 
-    app.post('/upload', imageCtrl.addImage, function(req, res){
-        res.redirect('/home/upload');       
-    });    
+    app.post('/upload', imageCtrl.addImage);    
 }
 module.exports = routes;

@@ -1,7 +1,5 @@
 $(document).ready(function(){
     $("#uploadInput").on("change", function(){
-        $('.determinate').text('0%');
-        $('.determinate').width('0%');
         var files = $(this).get(0).files;
         if(files.length > 0){
             var formData = new FormData();
@@ -35,7 +33,10 @@ $(document).ready(function(){
 
                             // once the upload reaches 100%, set the progress bar text to done
                             if (percentComplete === 100) {
-                                $('.determinate').html('Done');
+                                Materialize.toast('Carga Completa', 2000, 'rounded', function(){
+                                    $('.determinate').text('0%');
+                                    $('.determinate').width('0%');
+                                });
                             }
                         }
                     }, false);
