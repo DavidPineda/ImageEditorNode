@@ -15,5 +15,5 @@ exports.addUser = function(req, res, next) {
             console.log(err);
             res.status(500).send("Ocurrio un Error");
         }
-    })
+    });
 }
