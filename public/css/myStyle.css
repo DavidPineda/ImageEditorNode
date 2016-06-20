@@ -19,3 +19,8 @@ main {
 .carousel{
 	height: 300px !important;
 }
+
+#myCanvas{
+	width: inherit;
+	height: inherit;
+}
