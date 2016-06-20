@@ -22,5 +22,5 @@ main {
 
 #myCanvas{
 	width: inherit;
-	height: inherit;
+	height: 400px;
 }
