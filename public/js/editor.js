@@ -6,9 +6,9 @@ $(document).ready(function() {
     ctx = loadContext();
     if(ctx){
         var img = new Image();
-        img.src = document.getElementById('myImage').value;
+        img.src = $("#myImage").val();
         img.onload = function() {
-            drawImageScaled(img, ctx);
+            drawImageScaled(img);
         }
     }
         
@@ -28,7 +28,7 @@ function loadContext() {
     return false;
 }
 
-function drawImageScaled(img, ctx) {
+function drawImageScaled(img) {
     var canvas = ctx.canvas ;
     var hRatio = canvas.width  / img.width;
     var vRatio =  canvas.height / img.height;
@@ -43,5 +43,5 @@ function pintar(e){
     posX = e.clientX;
     posY = e.clientY;
     ctx.fillStyle = "#FFF";
-    ctx.fillRect (posX, posY, 3, 3);
+    ctx.fillRect(posX, posY, 3, 3);
 }
