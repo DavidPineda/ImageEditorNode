@@ -14,10 +14,8 @@ window.onload = function() {
     if(ctx){
         var img = new Image(200, 200);
         img.src = document.getElementById('myImage').value;
-        img.swidth = 350
-        img.sheight = 300;
         img.onload = function() {
-            ctx.drawImage(img, 0, 0);
+            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
         }
     }
 }
