@@ -12,10 +12,10 @@ function loadContext(idCanvas) {
 window.onload = function() {
     var ctx = loadContext('myCanvas');
     if(ctx){
-        var img = new Image();
+        var img = new Image(200, 200);
         img.src = document.getElementById('myImage').value;
         img.onload = function() {
-            ctx.drawImage(img, 10, 10);
+            ctx.drawImage(img, 0, 0);
         }
     }
 }
