@@ -27,7 +27,7 @@ var routes = function(app) {
         });
     });
 
-    app.get('/home/editor', function(req, res){
+    app.post('/home/editor', function(req, res){
         res.render('editor', {
             user: req.session.passport.user,
             imgSrc: req.body.mySrc
