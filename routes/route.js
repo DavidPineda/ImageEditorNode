@@ -27,13 +27,15 @@ var routes = function(app) {
         });
     });
 
-    app.get('/home/editor', function(req, res){
+    app.get('/home/editor/:imgSrc', function(req, res){
         res.render('editor', {
-            user: req.session.passport.user
+            user: req.session.passport.user,
+            imgSrc: req.params.imgSrc
         });
     });
 
     app.post('/user', userCtrl.addUser, function(req, res) {
+        console.log(req.params)
         res.redirect('/users/login');
     });
 

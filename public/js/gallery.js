@@ -7,6 +7,6 @@ $(document).ready(function(){
     });
 
     $("#btnEdit").click(function(){
-        window.location.href = '/home/editor';
+        window.location.href = '/home/editor/' + $("#hfSrcImage");
     });
 });
