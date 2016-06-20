@@ -27,10 +27,10 @@ var routes = function(app) {
         });
     });
 
-    app.get('/home/editor/:imgSrc', function(req, res){
+    app.get('/home/editor', function(req, res){
         res.render('editor', {
             user: req.session.passport.user,
-            imgSrc: req.params.imgSrc
+            imgSrc: req.body.mySrc
         });
     });
 

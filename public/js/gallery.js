@@ -3,10 +3,5 @@ $(document).ready(function(){
 
     $(".carousel-item").click(function(){
         $("#btnEdit").removeClass("disabled");
-        $("#hfSrcImage").val($(this).children().attr("name"));
-    });
-
-    $("#btnEdit").click(function(){
-        window.location.href = '/home/editor/' + $("#hfSrcImage").val();
     });
 });

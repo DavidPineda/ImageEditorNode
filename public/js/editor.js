@@ -13,7 +13,7 @@ window.onload = function() {
     var ctx = loadContext('myCanvas');
     if(ctx){
         var img = new Image();
-        img.src = '/public/' + document.getElementById('myImage').value;
+        img.src = document.getElementById('myImage').value;
         img.onload = function() {
             ctx.drawImage(img, 10, 10);
         }
