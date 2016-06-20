@@ -41,10 +41,10 @@
 			<a class="carousel-item" href="#{{image.name}}"><img width="200" name="{{image.name}}" height="200" src="{{image.relativeSrc}}"></a>
 		{% endfor %}		
 	</div>
-	<form action="/home/editor" method="POST">
-		<input type="hidden" value="{{image.relativeSrc}}" name="mySrc" id="mySrc">	
+	<form action="/home/editor" method="POST" id="myForm">
+		<input type="hidden" name="mySrc" id="mySrc">	
 		<div class="center-btn">
-			<button type="submit" id="btnEdit" class="waves-effect waves-light btn btn-large disabled" name="action">Editar
+			<button type="button" id="btnEdit" class="waves-effect waves-light btn btn-large disabled" name="action">Editar
 				<i class="material-icons right">mode_edit</i>
 			</button>
 		</div>
