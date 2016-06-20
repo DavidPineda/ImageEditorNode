@@ -12,6 +12,11 @@ main {
 	text-align: center;
 }
 
+.center-div{
+	height: auto;
+	width: 95% auto;
+}
+
 .myForm{
 	margin-top: 3em;
 }
