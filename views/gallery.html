@@ -38,7 +38,7 @@
 	</p>
 	<div class="carousel">
 		{% for image in images %}
-			<a class="carousel-item" href="#{{image.name}}"><img width="200" height="200" src="{{image.relativeSrc}}"></a>
+			<a class="carousel-item" href="#{{image.name}}"><img width="200" name="{{image.name}}" height="200" src="{{image.relativeSrc}}"></a>
 		{% endfor %}		
 	</div>
 	<div class="center-btn">
