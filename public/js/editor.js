@@ -1,5 +1,24 @@
-function loadContext(idCanvas) {
-    var element = document.getElementById(idCanvas);
+var posX;
+var posY;
+var ctx;
+
+$(document).ready(function() {
+    ctx = loadContext();
+    if(ctx){
+        var img = new Image();
+        img.src = document.getElementById('myImage').value;
+        img.onload = function() {
+            drawImageScaled(img, ctx);
+        }
+    }
+        
+    $("#myCanvas").mousemove(function(event){
+        pintar(event);
+    });
+});
+
+function loadContext() {
+    var element = $("#myCanvas");
     if(element && element.getContext){
         var context = element.getContext('2d');
         if(context){
@@ -20,13 +39,9 @@ function drawImageScaled(img, ctx) {
     ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width*ratio, img.height*ratio);  
 }
 
-window.onload = function() {
-    var ctx = loadContext('myCanvas');
-    if(ctx){
-        var img = new Image();
-        img.src = document.getElementById('myImage').value;
-        img.onload = function() {
-            drawImageScaled(img, ctx);
-        }
-    }
+function pintar(e){
+    posX = e.clientX;
+    posY = e.clientY;
+    ctx.fillStyle = "#FFF";
+    ctx.fillRect (posX, posY, 3, 3);
 }
