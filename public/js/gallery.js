@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     $(".carousel-item").click(function(){
         $("#btnEdit").removeClass("disabled");
-        $("#hfSrcImage").val($(this).children().attr("name"));
+        $("#hfSrcImage").val($(this).children().attr("src"));
     });
 
     $("#btnEdit").click(function(){
