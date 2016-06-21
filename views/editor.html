@@ -6,7 +6,7 @@
 	<li><a href="#">Perfil</a></li>
 	<li><a href="#">Ajustes</a></li>
 	<li class="divider"></li>
-	<li><a href="#">Salir</a></li>
+	<li><a href="/users/login">Salir</a></li>
 </ul>            
 <div class="navbar-fixed">
 	<nav>
@@ -31,12 +31,24 @@
 
 
 {% block form %}
-<input type="hidden" value="{{imgSrc}}" id="myImage">
+<input type="hidden" value="{{imgSrc}}" id="myImageSrc">
+<input type="hidden" value="{{imgName}}" id="myImageName">
 <div class="myForm">
 	<div class="container">
-		<canvas id="myCanvas">
+		<canvas id="myCanvas" width="750" height="400">
 			Tu navegador no soporta canvas.
 		</canvas>
+		<div class="fixed-action-btn vertical" style="bottom: 12%; right: 3%;">
+			<a class="btn-floating btn-large red">
+				<i class="large material-icons">edit</i>
+			</a>
+			<ul>
+				<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+				<li><a class="btn-floating yellow darken-1" id="btnReload"><i class="material-icons">autorenew</i></a></li>
+				<li><a class="btn-floating green" id="btnDownload"><i class="material-icons">file_download</i></a></li>
+				<li><a class="btn-floating blue small"><i class="material-icons">color_lens</i></a></li>
+			</ul>
+		</div>		
 	</div>
 </div>
 {% endblock %}

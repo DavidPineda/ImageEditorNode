@@ -30,7 +30,8 @@ var routes = function(app) {
     app.post('/home/editor', function(req, res){
         res.render('editor', {
             user: req.session.passport.user,
-            imgSrc: req.body.mySrc
+            imgSrc: req.body.imgSrc,
+            imgName: req.body.imgName
         });
     });
 

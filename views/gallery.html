@@ -6,7 +6,7 @@
 	<li><a href="#">Perfil</a></li>
 	<li><a href="#">Ajustes</a></li>
 	<li class="divider"></li>
-	<li><a href="#">Salir</a></li>
+	<li><a href="/users/login"">Salir</a></li>
 </ul>            
 <div class="navbar-fixed">
 	<nav>
@@ -31,6 +31,7 @@
 
 {% block form %}
 <input type="hidden" id="hfSrcImage">
+<input type="hidden" id="hfNameImage">
 <div class="container">
 	<p class="center-text">
 		Selecciona la imagen que quieras en el centro, y empieza su
@@ -42,7 +43,8 @@
 		{% endfor %}		
 	</div>
 	<form action="/home/editor" method="POST" id="myForm">
-		<input type="hidden" name="mySrc" id="mySrc">	
+		<input type="hidden" name="imgSrc" id="imgSrc">
+		<input type="hidden" name="imgName" id="imgName">	
 		<div class="center-btn">
 			<button type="button" id="btnEdit" class="waves-effect waves-light btn btn-large disabled" name="action">Editar
 				<i class="material-icons right">mode_edit</i>

@@ -4,10 +4,12 @@ $(document).ready(function(){
     $(".carousel-item").click(function(){
         $("#btnEdit").removeClass("disabled");
         $("#hfSrcImage").val($(this).children().attr("src"));
+        $("#hfNameImage").val($(this).children().attr("name"));
     });
 
     $("#btnEdit").click(function(){
-        $("#mySrc").val($("#hfSrcImage").val());
+        $("#imgSrc").val($("#hfSrcImage").val());
+        $("#imgName").val($("#hfNameImage").val());
         $("#myForm").submit();
     });
 });
