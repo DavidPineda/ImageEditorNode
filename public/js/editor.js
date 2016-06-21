@@ -1,5 +1,13 @@
 var ctx;
 
+$(document).ready(function(){
+    $('#btnOpenModal').leanModal();
+
+    $('.modal-close').click(function(){
+        $("#hfColor").val($(this).attr('data-color'));
+    });    
+});
+
 window.addEventListener('load', function(){
     drawImage();
 }, false);
@@ -45,7 +53,7 @@ function drawImageScaled(img) {
     ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width*ratio, img.height*ratio); 
     canvas.addEventListener('mousemove', function(event){
         var point = getMousePos(canvas, event);
-        pintar(point);
+        pintar(point, getColor($("#hfColor").val()));
     });
 }
 
@@ -57,9 +65,11 @@ function getMousePos(canvas, evt) {
     };
 }
 
-function pintar(point){
-    ctx.fillStyle = "#FFF";
-    ctx.fillRect(point.x, point.y, 2, 2);
+function pintar(point, color){
+    if(color != ""){
+        ctx.fillStyle = color;
+        ctx.fillRect(point.x, point.y, 2, 2);        
+    }
 }
 
 function downloadCanvas(link){
@@ -67,4 +77,29 @@ function downloadCanvas(link){
     var name = document.getElementById('myImageName').value;
     name = name.substring(0, name.indexOf(".") - 1) + 'png';
     link.download = name;
+}
+
+function getColor(colorName){
+    switch(colorName){
+        case "red":
+            return "#f44336";
+        case "green":
+            return "#4caf50";
+        case "blue":
+            return "#2196f3";
+        case "orange":
+            return "#ff9800";
+        case "black":
+            return "#000000";
+        case "purple":
+            return "#9c27b0";
+        case "pink":
+            return "#e91e63";
+        case "brown":
+            return "#795548";
+        case "grey":
+            return "#9e9e9e";
+        case "yellow":
+            return "#ffeb3b";                                                            
+    }
 }
