@@ -1,10 +1,11 @@
 var ctx;
+var selectColor;
 
 $(document).ready(function(){
     $('#btnOpenModal').leanModal();
 
     $('.modal-close').click(function(){
-        $("#hfColor").val($(this).attr('data-color'));
+        selectColor = $(this).attr('data-color');
     });    
 });
 
@@ -53,7 +54,7 @@ function drawImageScaled(img) {
     ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width*ratio, img.height*ratio); 
     canvas.addEventListener('mousemove', function(event){
         var point = getMousePos(canvas, event);
-        pintar(point, getColor($("#hfColor").val()));
+        pintar(point, getColor(selectColor));
     });
 }
 
@@ -100,6 +101,8 @@ function getColor(colorName){
         case "grey":
             return "#9e9e9e";
         case "yellow":
-            return "#ffeb3b";                                                            
+            return "#ffeb3b";
+        default:
+            return "";
     }
 }
