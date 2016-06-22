@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
-
+var io = require('socket.io')(server);
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var passport = require('passport');
@@ -13,9 +13,6 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 var swig = require('swig');
-//var io = require('socket.io')(server);
-//var redis = require('redis');
-//var client = redis.createClient();
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
@@ -34,6 +31,19 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+io.on('connection', function(socket){
+	console.log('a user connected');
+
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+
+	socket.on('print', function(point){
+		console.log(point);
+		socket.broadcast.emit('print', point);
+	});
+});
 
 passport.serializeUser(function(user, done){
 	console.log('Serialize: ' + user);

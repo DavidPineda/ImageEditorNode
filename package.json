@@ -25,6 +25,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "passport-facebook": "^2.1.1",
-    "formidable": "^1.0.17"
+    "formidable": "^1.0.17",
+    "socket.io": "^1.4.6"
   }
 }

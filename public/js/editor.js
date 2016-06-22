@@ -1,12 +1,19 @@
 var ctx;
 var selectColor;
+var socket = io();
 
 $(document).ready(function(){
     $('#btnOpenModal').leanModal();
 
     $('.modal-close').click(function(){
         selectColor = $(this).attr('data-color');
-    });    
+        $('#modal1').closeModal();
+    });
+
+    socket.on('print', function(point){
+        pintar(point, point.color);
+    });        
+
 });
 
 window.addEventListener('load', function(){
@@ -67,9 +74,11 @@ function getMousePos(canvas, evt) {
 }
 
 function pintar(point, color){
-    if(color != ""){
+    if(color != ""){        
         ctx.fillStyle = color;
-        ctx.fillRect(point.x, point.y, 2, 2);        
+        ctx.fillRect(point.x, point.y, 2, 2);
+        point.color = color;
+        socket.emit('print', point);        
     }
 }
 
@@ -102,6 +111,10 @@ function getColor(colorName){
             return "#9e9e9e";
         case "yellow":
             return "#ffeb3b";
+        case "cyan":
+            return "#00bcd4";
+        case "teal":
+            return "#009688";
         default:
             return "";
     }
